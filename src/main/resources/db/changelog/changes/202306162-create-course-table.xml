@@ -14,7 +14,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="course_fee" type="double(17, 2)">
+            <column name="course_fee" type="double(19, 2)">
                 <constraints nullable="false"/>
             </column>
 
