@@ -13,6 +13,18 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+
+            <column name="course_fee" type="double(17, 2)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="course_code" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>
