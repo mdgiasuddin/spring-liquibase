@@ -1,0 +1,23 @@
+server:
+  port: 8543
+
+spring:
+  application:
+    name: FLYWAY-TEST
+  datasource:
+    url: jdbc:postgresql://localhost:5442/auth_service
+    username: user_giash
+    password: nE5kMc7JCGNqwDQM
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    #    hibernate:
+    #      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true

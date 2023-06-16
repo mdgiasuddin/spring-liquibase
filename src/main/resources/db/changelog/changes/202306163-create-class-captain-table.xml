@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="202306162" author="giash">
+        <comment>Added table class captain -- comment</comment>
+        <createTable tableName="class_captain">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_class_captain" nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="student_id" type="bigint"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="class_captain" baseColumnNames="student_id"
+                constraintName="fk_class_captain__student"
+                referencedTableName="student" referencedColumnNames="id"
+        />
+    </changeSet>
+
+    <changeSet id="202306163" author="giash">
+        <comment>Many to many relationship between student and course</comment>
+        <createTable tableName="student_course">
+            <column name="student_id" type="bigint"/>
+            <column name="course_id" type="bigint"/>
+        </createTable>
+
+        <addPrimaryKey
+                tableName="student_course" columnNames="student_id, course_id"
+                constraintName="pk_student_course"
+        />
+
+        <addForeignKeyConstraint
+                baseTableName="student_course" baseColumnNames="student_id"
+                constraintName="fk_student_course__student"
+                referencedTableName="student"
+                referencedColumnNames="id"
+        />
+
+        <addForeignKeyConstraint
+                baseTableName="student_course" baseColumnNames="course_id"
+                constraintName="fk_student_course__course"
+                referencedTableName="course"
+                referencedColumnNames="id"
+        />
+    </changeSet>
+</databaseChangeLog>
