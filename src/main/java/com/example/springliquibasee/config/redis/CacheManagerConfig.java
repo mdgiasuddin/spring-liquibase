@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import static com.example.springliquibasee.config.redis.RedisConfig.OTP_DATA;
 
 @Configuration
-public class CacheConfig {
+public class CacheManagerConfig {
 
     @Bean
     public OTPCacheManager otpCacheManager(@Autowired CacheManager cacheManager) {

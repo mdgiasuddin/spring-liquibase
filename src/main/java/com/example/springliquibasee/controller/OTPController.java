@@ -3,6 +3,7 @@ package com.example.springliquibasee.controller;
 import com.example.springliquibasee.dto.OTPRequest;
 import com.example.springliquibasee.service.OTPService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,5 +26,10 @@ public class OTPController {
     @GetMapping("/{phoneNumber}")
     public String getOTP(@PathVariable String phoneNumber) {
         return otpService.getOTP(phoneNumber);
+    }
+
+    @DeleteMapping("/{phoneNumber}")
+    public String deleteOTP(@PathVariable String phoneNumber) {
+        return otpService.deleteOTP(phoneNumber);
     }
 }

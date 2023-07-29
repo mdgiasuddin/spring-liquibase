@@ -29,4 +29,10 @@ public class OTPService {
 
         return String.format("OTP: %s", otp);
     }
+
+    public String deleteOTP(String phoneNumber) {
+        otpCacheManager.evictOTPCache(phoneNumber);
+
+        return "OTP deleted successfully!";
+    }
 }
